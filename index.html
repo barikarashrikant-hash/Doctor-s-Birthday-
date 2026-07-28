@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Bangaram! 🩺✨</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="hero">
+        <h1>Happy Birthday, Doctreee! 🎂🩺</h1>
+        <p class="subtitle">Blowing out virtual candles for my favorite person ✨</p>
+        
+        <div class="candle-container" onclick="blowCandle()">
+            <div id="flame" class="flame"></div>
+            <div class="candle"></div>
+            <p id="candle-text">Tap to blow out the candle! 🕯️</p>
+        </div>
+    </header>
+
+    <section class="game-section">
+        <h2>Pick a Gift Box! 🎁</h2>
+        <div class="boxes-grid">
+            <div class="card" onclick="revealCard('box1', 'Truth: What is your favorite memory of us together?')">
+                <span class="icon">🎁</span>
+                <p id="box1">Box #1</p>
+            </div>
+            <div class="card" onclick="revealCard('box2', 'Dare: Send a 10-second funny voice note right now!')">
+                <span class="icon">🎁</span>
+                <p id="box2">Box #2</p>
+            </div>
+            <div class="card" onclick="revealCard('box3', 'Truth: What’s one secret wish you have for this year?')">
+                <span class="icon">🎁</span>
+                <p id="box3">Box #3</p>
+            </div>
+            <div class="card secret" onclick="openPinModal()">
+                <span class="icon">🩺</span>
+                <p>Secret Box</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="pinModal" class="modal">
+        <div class="modal-content">
+            <h3>Enter Secret PIN 🔐</h3>
+            <input type="password" id="pinInput" placeholder="Enter PIN">
+            <button onclick="checkPin()">Unlock Surprise</button>
+            <p id="pinError" style="color:red; display:none;">Incorrect PIN! Try again.</p>
+        </div>
+    </div>
+
+    <section id="surpriseSection" class="surprise-section" style="display:none;">
+        <h2>🎉 Special Birthday Message 🎉</h2>
+        <div class="photo-frame">
+            <div class="placeholder-img">📸 [ Insert Her Photo Here ]</div>
+        </div>
+        <p class="letter">
+            Happy Birthday Bangaram! You mean the absolute world to me. 
+            May this year bring you as much joy, health, and success as you bring into my life every day. 🌟
+        </p>
+        <div class="audio-player">
+            <p>🎵 Playing: Preethiya Oora Naayakiye</p>
+            <audio controls autoplay loop src="your-song-file.mp3"></audio>
+        </div>
+    </section>
+
+    <script>
+        function blowCandle() {
+            document.getElementById('flame').style.display = 'none';
+            document.getElementById('candle-text').innerText = '✨ Wish Made! ✨';
+        }
+
+        function revealCard(id, text) {
+            document.getElementById(id).innerText = text;
+        }
+
+        function openPinModal() {
+            document.getElementById('pinModal').style.display = 'flex';
+        }
+
+        function checkPin() {
+            const pin = document.getElementById('pinInput').value;
+            if (pin === '0131') {
+                document.getElementById('pinModal').style.display = 'none';
+                document.getElementById('surpriseSection').style.display = 'block';
+                document.getElementById('surpriseSection').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                document.getElementById('pinError').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+  </html>
+  
